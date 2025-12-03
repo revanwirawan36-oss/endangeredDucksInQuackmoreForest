@@ -1,6 +1,7 @@
 #ifndef LOADING_H
 #define LOADING_H
 
-void tampilkanLoadingBebek();
+void tampilkanLoadingBebek(); //fungsi load
+
 
 #endif 
