@@ -46,6 +46,7 @@ void tampilkanLoadingBebek() {
     mvprintw(start_y + DUCK_HEIGHT, start_x, "%s", rail);
 
     int ch;
+    //eh
     
     nodelay(stdscr, TRUE); 
     
