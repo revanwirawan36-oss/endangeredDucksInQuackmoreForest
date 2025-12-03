@@ -6,7 +6,7 @@
 #include "hard.h" 
 #include "loading.h"
 using namespace std;
-
+// bingung
 
 int main() {
     initscr();
