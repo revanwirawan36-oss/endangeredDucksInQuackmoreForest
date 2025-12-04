@@ -5,6 +5,7 @@
 #include "easy.h" 
 #include "hard.h" 
 #include "loading.h"
+#include "leaderboard.h"
 using namespace std;
 
 int main() {
