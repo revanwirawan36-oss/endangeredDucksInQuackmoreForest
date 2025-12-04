@@ -6,7 +6,6 @@
 #include "hard.h" 
 #include "loading.h"
 using namespace std;
-// bingung
 
 int main() {
     initscr();
@@ -19,14 +18,11 @@ int main() {
     while (1>0) {
         clear();
         refresh();
-
         const char *mainItems[4] = { "Play", "Story", "Rules", "Quit" };
         int mainChoice = drawMenuWindow("MAIN MENU", mainItems, 4);
-
         if (mainChoice == 0) {
             const char *playItems[2] = { "Easy", "Hard" }; 
             int playChoice = drawMenuWindow("PLAY MENU", playItems, 2);
-
             if (playChoice == 0) 
                 clear();
                 refresh();
@@ -41,7 +37,6 @@ int main() {
                 clear(); refresh();
                 mulaiGameHard(); 
             }
-
         }
         else if (mainChoice == 1) {
             clear(); refresh();
@@ -55,7 +50,6 @@ int main() {
             break;
         }
     }
-
     endwin();
     return 0;
 }
