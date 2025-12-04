@@ -17,23 +17,19 @@ int main() {
     curs_set(0);
 
     while (1>0) {
-        clear();
-        refresh();
-        const char *mainItems[4] = { "Play", "Story", "Rules", "Quit" };
-        int mainChoice = drawMenuWindow("MAIN MENU", mainItems, 4);
+     const char *mainItems[5] = { "Play", "Story", "Rules", "Leaderboard", "Quit" }; 
+        int mainChoice = drawMenuWindow("MAIN MENU", mainItems, 5); // Jumlah item menjadi 5
         if (mainChoice == 0) {
             const char *playItems[2] = { "Easy", "Hard" }; 
-            int playChoice = drawMenuWindow("PLAY MENU", playItems, 2);
-            if (playChoice == 0) 
-                clear();
-                refresh();
+            int playChoice = drawMenuWindow("PLAY MENU", playItems, 2); 
+            if (playChoice == 0) {
+                clear(); refresh();
                 tampilkanLoadingBebek();
                 clear(); refresh();
-                mulaiGameEasy();
+                mulaiGameEasy(); 
             }
             else if (playChoice == 1) {
-                clear();
-                refresh();
+                clear(); refresh();
                 tampilkanLoadingBebek();
                 clear(); refresh();
                 mulaiGameHard(); 
@@ -47,7 +43,10 @@ int main() {
         else if (mainChoice == 2) {
             showRules();
         }
-        else if (mainChoice == 3 || mainChoice == -1) {
+        else if (mainChoice == 3) {
+            showLeaderboard();
+        }
+        else if (mainChoice == 4 || mainChoice == -1) {
             break;
         }
     }
