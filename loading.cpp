@@ -4,7 +4,7 @@
 #include <unistd.h> 
 #include <cstring> 
 #include "loading.h"
-
+kfjkjldfs
 #define DUCK_HEIGHT 4
 #define DUCK_WIDTH 9 
 #define ANIMATION_RANGE 40
