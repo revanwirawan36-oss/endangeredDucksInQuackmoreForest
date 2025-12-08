@@ -8,7 +8,7 @@
 using namespace std;
 
 const int TUNGGU_SETELAH_GAMBAR = 2000; 
-const int DELAY_KETIK_MS = 45;         
+const int DELAY_KETIK_MS = 44;         
 
 const int WIN_TINGGI = 6;
 const int WIN_LEBAR  = 100;
@@ -366,4 +366,5 @@ void mainCerita() {
     wgetch(win);
 
     delwin(win);
+
 }
