@@ -13,7 +13,7 @@ void sortLeaderboard(ScoreEntry leaderboard[], int count) {
             if (leaderboard[j].skor < leaderboard[j+1].skor) {
                 swap(leaderboard[j], leaderboard[j+1]);
             } 
-            //hard diatas easy klo sama
+            //hard diatas easy kalo sama
             else if (leaderboard[j].skor == leaderboard[j+1].skor) {
                  if (leaderboard[j].level < leaderboard[j+1].level) {
                      swap(leaderboard[j], leaderboard[j+1]);
@@ -109,4 +109,5 @@ void showLeaderboard() {
     delwin(leaderWindow);
     clear();
     refresh();
+
 }
