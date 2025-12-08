@@ -12,4 +12,7 @@ struct ScoreEntry {
 
 void showLeaderboard();
 
+void addScore(const char *nama, int skor, int level);
+
+
 #endif 
