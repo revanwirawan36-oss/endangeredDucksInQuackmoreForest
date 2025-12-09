@@ -68,8 +68,8 @@ int drawMenuWindow(const char *title, const char *items[], int count) {
             return -1;
         }
     }
-    curs_set(0);
-    clear(); refresh();
+    
 }
+
 
 
