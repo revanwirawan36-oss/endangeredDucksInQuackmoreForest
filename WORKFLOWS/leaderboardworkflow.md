@@ -1,141 +1,121 @@
-# 📂 Alur Kerja Program `leaderboard.cpp`
+# 📊 Alur Kerja Program `leaderboard.cpp`
 
-Dokumen ini menjelaskan alur logika dan cara kerja dari file C++ `leaderboard.cpp`, yang bertugas mengelola dan menampilkan papan peringkat (leaderboard) sebuah game.
-
----
-
-## 🛠️ Fungsi Utama
-
-File ini berisi dua fungsi utama:
-
-1.  **`sortLeaderboard(ScoreEntry leaderboard[], int count)`**: Untuk mengurutkan data skor yang sudah dibaca dari file.
-2.  **`showLeaderboard()`**: Untuk membaca data, mengurutkan, dan menampilkannya di layar menggunakan library `ncurses`.
+Dokumen ini menjelaskan alur logika dan cara kerja dari file C++ `leaderboard.cpp`, yang bertugas mengelola, mengurutkan, dan menampilkan papan peringkat (leaderboard) sebuah game menggunakan library **ncurses**.
 
 ---
 
-## 1. Fungsi `sortLeaderboard`
+## 🛠️ Fungsi Utama dalam Program
 
-Fungsi ini bertanggung jawab untuk mengurutkan daftar skor (leaderboard) dari yang **tertinggi** ke yang **terendah**.
+File ini berisi dua fungsi inti:
 
-### Logika Pengurutan (Bubble Sort)
-
-Fungsi ini menggunakan algoritma **Bubble Sort** untuk menukar posisi entri skor hingga terurut.
-
-* **Tujuan:** Mengurutkan dari skor terbesar ke skor terkecil (descending).
-
-* **Logika Perbandingan `if` dan `else if`:**
-    1.  **Prioritas Utama (Skor):**
-        ```c++
-        if (leaderboard[j].skor < leaderboard[j+1].skor) {
-            swap(leaderboard[j], leaderboard[j+1]);
-        }
-        ```
-        * **Kondisi:** Jika skor entri saat ini (`leaderboard[j].skor`) **lebih kecil** dari skor entri berikutnya (`leaderboard[j+1].skor`), maka **tukar posisi** mereka. Ini memastikan skor yang lebih besar selalu berada di posisi depan (lebih tinggi peringkatnya).
-
-    2.  **Prioritas Kedua (Level - Jika Skor Sama):**
-        ```c++
-        else if (leaderboard[j].skor == leaderboard[j+1].skor) {
-             if (leaderboard[j].level < leaderboard[j+1].level) {
-                 swap(leaderboard[j], leaderboard[j+1]);
-             }
-        }
-        ```
-        * **Kondisi:** Jika skor kedua entri **sama** (`==`), program akan memeriksa levelnya.
-        * **Logika Level:** Diasumsikan Level **Sulit** memiliki nilai lebih besar (misalnya `1`) daripada Level **Mudah** (misalnya `0`).
-        * Jika level entri saat ini (`leaderboard[j].level`) **lebih kecil** dari level entri berikutnya (`leaderboard[j+1].level`), artinya entri saat ini adalah **Mudah** dan entri berikutnya adalah **Sulit** (0 < 1).
-        * Dalam kasus skor sama, entri dari level **Sulit** harus ditempatkan di atas entri dari level **Mudah**, sehingga mereka **ditukar** posisinya.
+1.  **`sortLeaderboard(ScoreEntry leaderboard[], int count)`**: Mengurutkan data skor.
+2.  **`showLeaderboard()`**: Mengatur pembacaan data, pemanggilan pengurutan, dan tampilan visual leaderboard.
 
 ---
 
-## 2. Fungsi `showLeaderboard`
+## 1. Fungsi `sortLeaderboard` (Logika Pengurutan)
 
-Fungsi ini adalah inti dari tampilan papan peringkat. Alurnya dibagi menjadi tiga tahap utama: Membaca Data, Mengurutkan Data, dan Menampilkan Data.
+Fungsi ini menggunakan algoritma **Bubble Sort** untuk menukar posisi entri skor agar terurut dari yang **tertinggi** ke yang **terendah** (Descending).
+
+### Logika Perbandingan dan Penukaran
+
+Fungsi ini menggunakan logika `if` bersarang untuk menentukan kapan harus menukar posisi dua entri skor yang berdekatan.
+
+* **Looping:** Terdapat dua loop `for` bersarang untuk membandingkan setiap pasangan entri skor.
+* **Prioritas 1: Perbandingan Skor (`if`)**
+    ```c++
+    if (leaderboard[j].skor < leaderboard[j+1].skor) {
+        swap(leaderboard[j], leaderboard[j+1]);
+    }
+    ```
+    * **Kondisi:** Jika skor entri saat ini (`leaderboard[j].skor`) **lebih kecil** dari skor entri berikutnya (`leaderboard[j+1].skor`).
+    * **Aksi:** **Tukar** posisi mereka (`swap`). Ini memastikan skor yang lebih besar (lebih tinggi peringkatnya) selalu bergerak ke posisi sebelumnya.
+* **Prioritas 2: Perbandingan Level (Jika Skor Sama - `else if`)**
+    ```c++
+    else if (leaderboard[j].skor == leaderboard[j+1].skor) {
+         if (leaderboard[j].level < leaderboard[j+1].level) {
+             swap(leaderboard[j], leaderboard[j+1]);
+         }
+    }
+    ```
+    * **Kondisi Luar:** Hanya dieksekusi jika skor kedua entri **sama** (`==`).
+    * **Kondisi Dalam (`if`):** Jika level entri saat ini **lebih kecil** dari level entri berikutnya (Diasumsikan Level **Sulit** memiliki nilai lebih besar dari **Mudah**, misal: $0 < 1$).
+    * **Aksi:** **Tukar** posisi mereka. Ini berarti, jika skor sama, pemain yang bermain di level **Sulit** akan diposisikan di atas pemain yang bermain di level **Mudah**.
+
+---
+
+## 2. Fungsi `showLeaderboard` (Alur Program Utama)
+
+Fungsi ini menjalankan tiga tahap utama: Membaca Data, Mengurutkan Data, dan Menampilkan Tampilan **ncurses**.
 
 ### A. Membaca Data dari File (`score.txt`)
 
-1.  **Inisialisasi:** Membuat array `leaderboard` dan penghitung `entryCount = 0`.
-2.  **Membuka File:** Mencoba membuka file bernama `"score.txt"`.
-3.  **Logika `if (file.is_open())`:**
-    * **Kondisi `true` (File Terbuka):** Program masuk ke loop `while`.
-    * **Loop `while`:**
+1.  **Inisialisasi:** Deklarasi array `leaderboard` dan penghitung `entryCount = 0`.
+2.  **Pembukaan File:** Mencoba membuka file `"score.txt"` menggunakan `ifstream file`.
+3.  **Logika Pembukaan File (`if (file.is_open())`)**
+    * **Kondisi `true`:** File berhasil dibuka, program masuk ke loop pembacaan.
+    * **Loop Pembacaan (`while`):**
         ```c++
         while (file >> nama_temp >> skor_temp >> level_temp && entryCount < MAX_ENTRIES) {
-            // ... proses membaca data dan menyimpan ke array leaderboard
+            // ... menyimpan data ke array
             entryCount++;
         }
         ```
-        * **Tugas:** Membaca data dari file (nama, skor, level) secara berulang.
-        * **Pengamanan:** Loop akan berhenti jika:
-            * Data di file sudah habis.
-            * Jumlah entri yang terbaca sudah mencapai batas maksimum (`MAX_ENTRIES`).
-    * **Menyimpan Data:** Data yang dibaca disimpan ke dalam array `leaderboard` dan `entryCount` bertambah.
-    * **Menutup File:** File ditutup dengan `file.close()`.
+        * Program membaca (ekstraksi) `nama`, `skor`, dan `level` secara berurutan.
+        * Loop berhenti jika: 1) Data di file habis, **ATAU** 2) Jumlah entri mencapai batas maksimum (`MAX_ENTRIES`).
+    * **Penyimpanan Data:** Data disimpan ke dalam array `leaderboard`. Karena nama adalah *C-style string* (`char[]`), digunakan `strncpy` dan *null terminator* (`\0`).
+    * **Penutupan File:** File ditutup dengan `file.close()`.
 
-### B. Mengurutkan Data
+### B. Proses Pengurutan
 
-1.  **Logika `if (entryCount > 0)`:**
-    * **Kondisi:** Jika **ada** skor yang terbaca dari file (`entryCount` lebih dari 0), maka panggil fungsi **`sortLeaderboard`** untuk mengurutkan data.
+1.  **Logika Pengurutan (`if (entryCount > 0)`)**
+    * **Kondisi:** Jika `entryCount` **lebih dari 0** (artinya ada data skor yang terbaca), maka fungsi `sortLeaderboard` dipanggil.
     * **Kondisi `false`:** Jika tidak ada data, proses pengurutan dilewati.
 
-### C. Menampilkan Leaderboard (Menggunakan `ncurses`)
+### C. Menampilkan Tampilan (ncurses)
 
-Bagian ini berurusan dengan pembuatan *window* dan menampilkan teks di tengah layar.
+Bagian ini fokus pada penentuan ukuran dan pembuatan tampilan di terminal.
 
-1.  **Persiapan Layar:** Fungsi `clear()` dan `refresh()` dipanggil untuk membersihkan dan memperbarui layar utama `ncurses`.
-
+1.  **Persiapan Layar:** Layar `ncurses` utama dibersihkan (`clear(); refresh();`).
 2.  **Menghitung Ukuran Window:**
-    * Program menghitung ukuran layar (`maxBaris`, `maxKolom`).
-    * Dihitung ketinggian dan lebar *window* yang dibutuhkan (`requiredHeight`, `windowWidth`) dengan ukuran maksimum Lebar 60 dan Tinggi yang cukup untuk menampung konten (minimal 7 baris + baris skor).
-    * Tinggi dan lebar *window* akhir disesuaikan agar tidak melebihi ukuran layar.
-
-3.  **Logika Pengamanan Ukuran:**
-    ```c++
-    if (windowHeight < 5 || windowWidth < 20) return;
-    ```
-    * **Tujuan:** Jika layar terminal terlalu kecil (tinggi kurang dari 5 atau lebar kurang dari 20), fungsi **dihentikan** (`return`) untuk mencegah *crash* tampilan.
-
-4.  **Membuat dan Mengatur Window:**
-    * *Window* baru (`leaderWindow`) dibuat di tengah layar.
-    * `keypad(leaderWindow, TRUE)`: Mengaktifkan *keypad* untuk *window*.
-    * `box(leaderWindow, 0, 0)`: Membuat garis bingkai di sekeliling *window*.
-
-5.  **Menampilkan Header (Judul dan Kolom):**
-    * Judul seperti "**DAFTAR PERINGKAT**" dan nama kolom ("#", "NAMA", "SKOR", "LEVEL") dicetak di posisi yang sudah dihitung.
-    * Garis pembatas horizontal (`ACS_HLINE`) dicetak.
-
-6.  **Menampilkan Entri Skor (Logika `if/else` Entri):**
-    * **Logika `if (entryCount == 0)`:**
-        * **Kondisi `true`:** Jika tidak ada data skor, pesan "**Belum ada skor yang tercatat.**" ditampilkan di tengah.
-    * **Logika `else` (Ada Entri):**
-        * Program masuk ke loop `for` untuk menampilkan setiap entri skor yang sudah diurutkan.
-        * **Pengamanan Tampilan:**
+    * `getmaxyx(stdscr, maxBaris, maxKolom)`: Mendapatkan ukuran layar terminal yang sedang aktif.
+    * Ukuran *window* (`windowHeight`, `windowWidth`) dihitung. Lebar maksimum ditetapkan 60 kolom.
+    * **Logika Pengamanan Ukuran (`if`):**
+        ```c++
+        if (windowHeight < 5 || windowWidth < 20) return;
+        ```
+        * Jika layar terminal terlalu kecil (tinggi kurang dari 5 **ATAU** lebar kurang dari 20), fungsi segera **dihentikan** (`return`) untuk mencegah *crash* atau tampilan yang rusak.
+3.  **Pembuatan Window:**
+    * `WINDOW *leaderWindow = newwin(...)`: Window baru dibuat, diposisikan **di tengah** layar terminal.
+    * `box(leaderWindow, 0, 0)`: Membuat garis bingkai di sekeliling window.
+4.  **Menampilkan Header:** Judul, garis pembatas (`ACS_HLINE`), dan label kolom ("#", "NAMA", "SKOR", "LEVEL") dicetak.
+5.  **Menampilkan Entri Skor:**
+    * **Logika Data Kosong (`if (entryCount == 0)`)**
+        * **Kondisi `true`:** Pesan "Belum ada skor yang tercatat." ditampilkan di tengah window.
+    * **Logika Data Ada (`else`)**
+        * Loop `for` dijalankan dari $i=0$ hingga `entryCount-1`.
+        * **Pengamanan Tampilan (`if`):**
             ```c++
             if (barisAwal + i < windowHeight - 2) {
                 // ... tampilkan data
             }
             ```
-            * Loop hanya menampilkan data jika baris entri masih muat di dalam *window* (di atas baris pesan "Tekan tombol...").
-        * **Pencetakan:** Nomor, Nama, Skor, dan Level (dikonversi dari `0` atau `1` menjadi "Mudah" atau "Sulit") dicetak.
-
-7.  **Menampilkan Pesan Keluar:**
-    * Pesan "**Tekan tombol apa saja untuk kembali...**" dicetak di bagian bawah *window*.
-
-8.  **Pembaruan dan Input:**
-    * `wrefresh(leaderWindow)`: Memperbarui tampilan *window*.
-    * `getch(); getch();`: Menunggu dua kali input tombol dari pengguna. (Kemungkinan pertama untuk tombol apa saja, dan kedua untuk penekanan tombol lain/enter, atau ini adalah *double-check* untuk memastikan input terbaca).
-
-9.  **Membersihkan:**
-    * `delwin(leaderWindow)`: Menghapus *window* dari memori.
-    * `clear(); refresh();`: Membersihkan dan memperbarui layar utama sebelum program kembali ke menu utama.
+            * Entri skor hanya ditampilkan jika barisnya **masih muat** di dalam *window* (yaitu, di atas baris pesan "Tekan tombol...").
+        * **Konversi Level:** Variabel `namaLevel` disiapkan: jika `entri.level == 0` maka `namaLevel` adalah "Mudah", jika tidak (`else`) maka "Sulit".
+        * Data (`#`, Nama, Skor, `namaLevel`) dicetak pada baris yang sesuai.
+6.  **Pesan Keluar:** Pesan "Tekan tombol apa saja untuk kembali..." dicetak di bagian bawah *window*.
+7.  **Input dan Bersihkan:**
+    * `wrefresh(leaderWindow)`: Memperbarui tampilan window.
+    * `getch(); getch();`: Menunggu input tombol dari pengguna.
+    * `delwin(leaderWindow)`: Menghapus window dari memori.
+    * Layar utama dibersihkan kembali (`clear(); refresh();`).
 
 ---
 
-## 💡 Konsep Utama untuk Mahasiswa Awal
+## 💡 Konsep Penting
 
-| Konsep | Penjelasan |
-| :--- | :--- |
-| **Bubble Sort** | Algoritma pengurutan yang berulang kali membandingkan dan menukar elemen yang berdekatan jika urutannya salah. |
-| **File I/O (`fstream`)** | Cara program membaca data dari file (`ifstream`) di *disk* (dalam kasus ini, `score.txt`). |
-| **`ncurses`** | Library yang digunakan untuk membuat antarmuka berbasis teks (seperti *window*, kotak, dan mengatur posisi teks) di terminal. |
-| **Pengecekan *Boundary* (`getmaxyx`)** | Teknik untuk mengetahui ukuran terminal (`maxBaris`, `maxKolom`) sehingga program bisa menyesuaikan tampilan agar tidak melebihi layar. |
-| **Logika *If-Else* Bersarang** | Digunakan pada `sortLeaderboard` untuk memberikan prioritas. Jika kondisi utama (`if`) tidak terpenuhi, barulah kondisi kedua (`else if`) yang lebih spesifik (membandingkan level) diperiksa. |
+* **Bubble Sort:** Algoritma pengurutan yang mudah dipahami (pertukaran elemen) namun kurang efisien untuk data dalam jumlah sangat besar.
+* **ncurses:** Digunakan untuk membuat antarmuka pengguna berbasis teks, memungkinkan kontrol penuh atas posisi kursor dan pembuatan elemen seperti *window* dan kotak.
+* **`fstream`:** Library untuk operasi file Input/Output. `ifstream` adalah singkatan dari *Input File Stream*, digunakan untuk **membaca** data dari file (`score.txt`).
+* **Pengecekan Batas (Safeguard):** Pengecekan ukuran layar (`if (windowHeight < 5 || windowWidth < 20)`) adalah praktik pemrograman yang baik untuk memastikan program tidak *crash* atau menampilkan output yang tidak terbaca di terminal yang terlalu kecil.
+  
