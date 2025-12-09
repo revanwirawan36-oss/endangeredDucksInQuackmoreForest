@@ -16,7 +16,12 @@ void showRules() {
     "* Tujuan: mengenai sebanyak mungkin bebek.\n"
     "* Permainan berakhir ketika semua bebek tertembak atau \n  kedua pemain sudah menggunakan jatah tembak.\n"
     "* Bebek tidak dapat keluar dari grid. Jika mencapai batas:\n"
-    
+    "    - Jika naik ke atas -> muncul kembali dari bawah.\n"
+    "    - Jika ke kanan     -> muncul dari kiri.\n"
+    "    - Jika ke kiri      -> muncul dari kanan.\n"
+    "    - Jika turun        -> muncul dari atas.\n"
+    "\n"
+    "               (Tekan apapun untuk keluar)\n";
 
     int win_tinggi = 23;
     int win_lebar  = 80;
@@ -48,6 +53,7 @@ void showRules() {
     wgetch(win);
     delwin(win);
 }
+
 
 
 
