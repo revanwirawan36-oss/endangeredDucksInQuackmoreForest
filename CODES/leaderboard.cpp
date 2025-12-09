@@ -23,7 +23,9 @@ void sortLeaderboard(ScoreEntry leaderboard[], int count) {
     }
 }
 
-
+void showLeaderboard() {
+    ScoreEntry leaderboard[MAX_ENTRIES];
+    int entryCount = 0;
     
     ifstream file("score.txt");
     //baca
@@ -109,4 +111,5 @@ void sortLeaderboard(ScoreEntry leaderboard[], int count) {
     refresh();
 
 }
+
 
