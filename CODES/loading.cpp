@@ -7,7 +7,10 @@
 #pragma comment(lib, "winmm.lib")
 #include "loading.h"
 
-
+#define DUCK_HEIGHT 4
+#define DUCK_WIDTH 9 
+#define ANIMATION_RANGE 40 
+#define DELAY_MS 100 
 
 const char* DUCK_FRAME[] = {
     "     __ ",
@@ -61,4 +64,5 @@ void tampilkanLoadingBebek() {
 
     endwin();
 }
+
 
