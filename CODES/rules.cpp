@@ -5,7 +5,7 @@ void showRules() {
     curs_set(0);
     clear(); refresh();
 
-    const char *rulesText =
+    
     "Aturan Permainan:\n"
     "\n"
     "* Permainan menggunakan grid berukuran 15 x 12.\n"
@@ -53,3 +53,4 @@ void showRules() {
     wgetch(win);
     delwin(win);
 }
+
