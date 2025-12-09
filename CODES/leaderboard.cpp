@@ -6,7 +6,7 @@
 #include <ncurses/curses.h>
 using namespace std;
 
-
+void sortLeaderboard(ScoreEntry leaderboard[], int count) {
     //bubble sort 
     for (int i = 0; i < count - 1; ++i) {
         for (int j = 0; j < count - 1 - i; ++j) {
@@ -111,6 +111,7 @@ void showLeaderboard() {
     refresh();
 
 }
+
 
 
 
