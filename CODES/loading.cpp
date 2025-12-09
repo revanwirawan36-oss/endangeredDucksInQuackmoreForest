@@ -62,7 +62,8 @@ void tampilkanLoadingBebek() {
         napms(DELAY_MS); //delay buat efek animasi
     }
 
-    endwin();
+    
 }
+
 
 
