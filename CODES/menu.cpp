@@ -1,6 +1,4 @@
-#include <ncurses/curses.h>
-#include "menu.h"
-#include <cstring>
+
 
 
 //buat menu
@@ -71,3 +69,4 @@ int drawMenuWindow(const char *title, const char *items[], int count) {
     curs_set(0);
     clear(); refresh();
 }
+
