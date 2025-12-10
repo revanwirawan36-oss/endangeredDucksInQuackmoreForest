@@ -110,7 +110,7 @@ void mulaiGameEasy() {
     refresh();
     curs_set(0); 
     
-    //window set up biar kga nabrak nabrak
+    //window set up biar kga nabrak nabrak, jd bisa menyesuaikan terminal
     int cell_w = 5;
     int grid_w = GRID_KOLOM * cell_w + 2;
     int grid_h = GRID_BARIS * 2 + 2; 
@@ -476,4 +476,5 @@ void mulaiGameEasy() {
 
     clear(); 
     refresh();
+
 }
