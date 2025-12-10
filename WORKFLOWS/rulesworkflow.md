@@ -1,4 +1,4 @@
-# 📁 `Workflow.md` - Alur Kerja Fungsi Aturan (`rules.cpp`)
+#Alur Kerja Fungsi Aturan (`rules.cpp`)
 
 File `rules.cpp` hanya berisi satu fungsi, `showRules()`, yang berfungsi untuk menampilkan teks aturan permainan kepada pengguna dalam antarmuka terminal yang rapi menggunakan *library* `ncurses`.
 
