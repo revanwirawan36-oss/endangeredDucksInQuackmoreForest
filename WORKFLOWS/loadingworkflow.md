@@ -1,4 +1,4 @@
-# ⏳ Workflow Program `loading.cpp`
+# ⏳ `Workflow` Program `loading.cpp`
 
 Dokumen ini menjelaskan alur logika dan cara kerja dari file C++ `loading.cpp`, yang bertanggung jawab menampilkan animasi loading sederhana berupa bebek yang bergerak (ASCII Art) menggunakan library **ncurses** dan memutar suara latar.
 
