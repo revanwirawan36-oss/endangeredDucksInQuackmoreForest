@@ -1,5 +1,5 @@
 
-# 💻 Workflow Internal Kode `hard.cpp` (Game Bebek Bersembunyi)
+# 💻 `Workflow` Internal Kode `hard.cpp` (Game Bebek Bersembunyi)
 
 Ini adalah analisis langkah demi langkah mengenai cara kerja (alur fungsi dan logika) dari kode sumber C++ `hard.cpp`, yang dirancang untuk implementasi game konsol menggunakan *library* `ncurses`.
 
