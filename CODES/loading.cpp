@@ -12,7 +12,7 @@
 #define ANIMATION_RANGE 40 
 #define DELAY_MS 100 
 
-const char* DUCK_FRAME[] = {
+const char* DUCK_FRAME[] = { //gambar ascii bebekkk
     "     __ ",
     " ___( o)>",
     " \\ <_. )",
@@ -64,6 +64,7 @@ void tampilkanLoadingBebek() {
 
    endwin(); 
 }
+
 
 
 
