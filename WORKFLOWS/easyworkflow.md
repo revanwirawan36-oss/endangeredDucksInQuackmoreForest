@@ -1,4 +1,4 @@
- Alur Kerja Program Game `easy.cpp`
+# 📂 Work Flow Program Game `easy.cpp`
 
 Program ini adalah implementasi sederhana dari game 'menembak bebek tersembunyi' (Duck Hunt Memory Game) menggunakan *library* `ncurses` untuk antarmuka berbasis terminal dan `windows.h` / `mmsystem.h` untuk memutar suara di sistem operasi Windows.
 
