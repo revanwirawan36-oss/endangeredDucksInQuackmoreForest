@@ -1,4 +1,4 @@
-# 📁 `workflow.md` - Alur Kerja Fungsi Menu (`menu.cpp`)
+# 📁 `Workflow.md` - Alur Kerja Fungsi Menu (`menu.cpp`)
 
 File `menu.cpp` berisi satu fungsi utama, `drawMenuWindow`, yang bertanggung jawab untuk membuat dan mengelola antarmuka menu interaktif di terminal menggunakan *library* `ncurses`.
 
