@@ -1,4 +1,4 @@
-# 📂 'Workflow' dan Logika Program Utama (`main.cpp`)
+# 📂 `Workflow` dan Logika Program Utama (`main.cpp`)
 
 Dokumen ini menjelaskan alur kerja dan logika utama dari program C++ yang Anda buat, yang merupakan aplikasi berbasis konsol menggunakan library **ncurses**.
 
