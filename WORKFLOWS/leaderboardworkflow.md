@@ -1,4 +1,4 @@
-# 📊 Alur Kerja Program `leaderboard.cpp`
+# 📊 Workflow Program `leaderboard.cpp`
 
 Dokumen ini menjelaskan alur logika dan cara kerja dari file C++ `leaderboard.cpp`, yang bertugas mengelola, mengurutkan, dan menampilkan papan peringkat (leaderboard) sebuah game menggunakan library **ncurses**.
 
