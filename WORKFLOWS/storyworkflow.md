@@ -1,4 +1,4 @@
-# 📖 Alur Kerja Program `story.cpp`
+# 📖  `Workflow` Program `story.cpp`
 
 Dokumen ini menjelaskan alur logika dan cara kerja dari file C++ `story.cpp`, yang bertanggung jawab menampilkan narasi cerita (cutscene) game menggunakan tampilan berbasis teks (`ncurses`) dan efek suara (`winmm.lib`).
 
