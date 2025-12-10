@@ -42,7 +42,7 @@ void showRules() {
     //print baris per baris
     while (*p) {
         int i = 0;
-        while (*p && *p != '\n') line[i++] = *p++; //masukin karakter ke line sampe ketemu \n
+        while (*p && *p != '\n') line[i++] = *p++; //masukin karakter ke line sampe ketemu \n atau newline
         line[i] = '\0';
         p++;
 
@@ -53,6 +53,7 @@ void showRules() {
     wgetch(win);
     delwin(win);
 }
+
 
 
 
