@@ -180,5 +180,5 @@ Proyek Tugas Akhir mata kuliah Pengenalan Pemrograman ini dikembangkan oleh:
 | Nama Anggota | NPM |
 | :---: | :---: |
 | Muhammad Revan Wirawan | 2517051010 |
-| Ratu Salsabila Humaira | 2517051017 |
+| Ratu Salsabila Humaira | 2517051019 |
 | Afifah Raidathu Nasya | 2517051043 |
