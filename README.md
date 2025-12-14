@@ -196,11 +196,11 @@ Di bawah ini adalah beberapa cuplikan visual dari antarmuka terminal yang dibuat
 ### 2. Cuplikan Gameplay
 
 Berikut adalah demonstrasi pergerakan Bebek dan input tembakan:
-![GIF Gameplay]([URL_GIF_GAMEPLAY_ANDA](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/footage.gif)
+![GIF Gameplay](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/footage.gif)
 
 ### 3. Cuplikan Story/Loading
 
 Tampilan saat transisi atau narasi cerita:
-![GIF Story/Loading]([URL_GIF_STORY_LOADING_ANDA](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/story.gif)
+![GIF Story/Loading](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/story.gif)
 
 ---
