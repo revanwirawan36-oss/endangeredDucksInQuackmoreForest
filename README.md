@@ -27,7 +27,7 @@ Catch The Duck adalah *game* berbasis terminal untuk dua pemain yang mensimulasi
 
 
 
-## 📖 Latar Belakang Cerita (Misi Konservasi)
+## 📖 Latar Belakang Cerita Dibalik Game (Misi Konservasi)
 
 
 
