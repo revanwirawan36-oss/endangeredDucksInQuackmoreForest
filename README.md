@@ -182,3 +182,25 @@ Proyek Tugas Akhir mata kuliah Pengenalan Pemrograman ini dikembangkan oleh:
 | Muhammad Revan Wirawan | 2517051010 |
 | Ratu Salsabila Humaira | 2517051019 |
 | Afifah Raidathu Nasya | 2517051043 |
+
+---
+
+## 📸 Cuplikan Game (GIF Demonstrasi)
+
+Di bawah ini adalah beberapa cuplikan visual dari antarmuka terminal yang dibuat menggunakan pustaka Ncurses:
+
+### 1. Menu Utama
+
+![GIF Menu Utama](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/menu.gif)
+
+### 2. Cuplikan Gameplay
+
+Berikut adalah demonstrasi pergerakan Bebek dan input tembakan:
+![GIF Gameplay]([URL_GIF_GAMEPLAY_ANDA](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/footage.gif))
+
+### 3. Cuplikan Story/Loading
+
+Tampilan saat transisi atau narasi cerita:
+![GIF Story/Loading]([URL_GIF_STORY_LOADING_ANDA](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/story.gif))
+
+---
