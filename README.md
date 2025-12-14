@@ -198,7 +198,7 @@ Di bawah ini adalah beberapa cuplikan visual dari interface terminal yang dibuat
 Berikut adalah demonstrasi Bebek dan input tembakan:
 ![GIF Gameplay](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/footage.gif)
 
-### 3. Cuplikan Story/Loading
+### 3. Cuplikan Story
 
 Cuplikan narasi cerita:
 ![GIF Story/Loading](https://raw.githubusercontent.com/revanwirawan36-oss/endangeredDucksInQuackmoreForest/main/GIF/story.gif)
