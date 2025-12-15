@@ -7,7 +7,7 @@
 #pragma comment(lib, "winmm.lib")
 using namespace std;
 
- 
+const int TUNGGU_SETELAH_GAMBAR = 2000;
 const int DELAY_KETIK_MS = 45;         
 
 const int WIN_TINGGI = 6;
@@ -368,5 +368,6 @@ void mainCerita() {
     delwin(win);
 
 }
+
 
 
