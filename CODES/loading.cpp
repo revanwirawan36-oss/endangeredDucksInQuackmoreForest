@@ -5,7 +5,7 @@
 #include <windows.h>
 #include <mmsystem.h>
 #pragma comment(lib, "winmm.lib")
-#include "loading.h"
+
 
 #define DUCK_HEIGHT 4
 #define DUCK_WIDTH 9 
@@ -64,6 +64,7 @@ void tampilkanLoadingBebek() {
 
    endwin(); 
 }
+
 
 
 
